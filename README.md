@@ -1,4 +1,4 @@
-# Mandelbrot-set-and-Julia-fractals
-A visualization of the Mandelbrot set and Julia fractals using matplotlib
+# Simulating-simple-ant-colonies-using-differential-equations
+SImulating the growth of simple two variable colonies of ants
 
 # DAM
