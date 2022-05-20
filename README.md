@@ -1,6 +1,6 @@
-# Simulating-simple-ant-colonies-using-differential-equations
-Simulating the growth of simple two variable colonies of ants.<br/>
-This simulation is based on two differential equations shown bellow:<br/>
+# Modelin-simple-ant-colonies-using-differential-equations
+Modeling the growth of simple two variable colonies of ants.<br/>
+This model is based on two differential equations shown bellow:<br/>
 $\frac{dF}{dt}=-aC$<br/>
 $\frac{dC}{dt}=bF$<br/>
 where $F$ is the amount of food, $C$ is the size of the colony and the coefficients $a$ and $b$ are traits of the colony and food.<br/>
