@@ -1,4 +1,4 @@
-# Modelin-simple-ant-colonies-using-differential-equations
+# Modeling-simple-ant-colonies-using-differential-equations
 Modeling the growth of simple two variable colonies of ants.<br/>
 This model is based on two differential equations shown bellow:<br/>
 $\frac{dF}{dt}=-aC$<br/>
