@@ -28,8 +28,8 @@ def state(t, dt, state_0, d_state, args):
 	return [x_range, y_range]
 
 food, colony = state(10, 0.001, state_0, d_state, args)
-print("max COL:" + str(max(colony)))
-print("max FOOD:" + str(max(food)))
+print("max COLONY: " + str(max(colony)) + ", max FOOD: " + str(max(food)))
+print("min COLONY: " + str(min(colony)) + ", min FOOD: " + str(min(food)))
 
 def writeDataToFile(arr1,label1, arr2, label2):
 	f = open("./results.txt", "w")
