@@ -27,13 +27,15 @@ def state(t, dt, state_0, d_state, args):
 	
 	return [x_range, y_range]
 
-food, colony = state(10, 0.01, state_0, d_state, args)
+food, colony = state(10, 0.001, state_0, d_state, args)
 print("max COL:" + str(max(colony)))
 print("max FOOD:" + str(max(food)))
 
 def writeDataToFile(arr1,label1, arr2, label2):
 	f = open("./results.txt", "w")
-	for i in range(0, len(arr1)):
-		f.write(f"{label1}: {arr1[i]}, {label2}: {arr2[i]} \n")
+	for i in range(0, int(np.round(len(arr1)/10,0))):
+		f.write(f"{label1}: {arr1[10*i]}, {label2}: {arr2[10*i]} \n")
+	f.write(f"{label1}: {arr1[-1]}, {label2}: {arr2[-1]}")
+	f.close()
 
 writeDataToFile(food,"FOOD",colony,"COLONY")
