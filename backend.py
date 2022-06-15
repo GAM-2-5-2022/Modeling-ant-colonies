@@ -115,7 +115,7 @@ class InteractivePlot:
 	def onSliderUpdate(self, value):
 		#changes the values when sliders are moved
 		sliderValues =  [slider.val for slider in self.paramSliders]
-		if 0 in sliderValues: return
+		if 0 in sliderValues or self.timeStepSlider.val == 0 : return
 		
 		state = self.diffPair.getState()
 		state["parameters"] = sliderValues
