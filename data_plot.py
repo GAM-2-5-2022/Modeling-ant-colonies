@@ -17,7 +17,7 @@ diffPair.logData('results.txt', "FOOD", "COLONY")
 
 fig, ax = plt.subplots(); plt.grid()
 line, = ax.plot(xData, yData, lw = 1.5); point, = ax.plot(xData[0], yData[0], "ro", markersize = 8);
-ax.set_aspect(1) #turn this on to see the actual shape of the graph better
+ax.set_aspect(1) #set this to "auto" for more extreme parameter values such as [0,100] and set it to 1 if you want to showcase the shape of the graph
 
 ax.set_xlabel("Food")
 ax.set_ylabel("Colony")
@@ -36,7 +36,7 @@ v = colonyDiff(xMesh, parameters[1])
 
 quiver = ax.quiver(
 	xMesh, yMesh, u, v,
-	angles = 'xy', scale_units = "xy", width = 0.002, alpha = 0.5
+	angles = 'xy', scale_units = "xy", width = 0.003, alpha = 0.5
 )
 quiverData = [quiver, xMesh, yMesh]
 
