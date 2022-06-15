@@ -8,7 +8,7 @@ def foodDiff(colony, foodParam): return -foodParam*colony
 def colonyDiff(food, colonyParam): return colonyParam*food
 diffEquations = [foodDiff, colonyDiff]
 startingState = [2,2]
-parameters = [1,1]
+parameters = [1,2]
 dt = 0.01
 #------------------------------------------------------------------------------------------------------
 diffPair = DiffPair(10, dt, diffEquations, startingState, parameters)
@@ -16,7 +16,8 @@ xData, yData = diffPair.getData()
 diffPair.logData('results.txt', "FOOD", "COLONY")
 
 fig, ax = plt.subplots(); plt.grid()
-line, = ax.plot(xData, yData, lw = 1.5); point, = ax.plot(xData[0], yData[0], "ro", markersize = 8)
+line, = ax.plot(xData, yData, lw = 1.5); point, = ax.plot(xData[0], yData[0], "ro", markersize = 8);
+ax.set_aspect(1) #turn this on to see the actual shape of the graph better
 
 ax.set_xlabel("Food")
 ax.set_ylabel("Colony")
@@ -26,8 +27,8 @@ plt.subplots_adjust(left=0.25, bottom=0.2)
 #making the vector field by using the values of the system of differential equations as the directional components
 xLim = ax.get_xlim(); yLim = ax.get_ylim()
 xMesh, yMesh = np.meshgrid(
-	np.arange(xLim[0], xLim[1], (xLim[1]-xLim[0])/20),
-	np.arange(yLim[0],yLim[1], (yLim[1]-yLim[0])/20)
+	np.arange(xLim[0]-1, xLim[1]+1, (xLim[1]-xLim[0]+2)/20),
+	np.arange(yLim[0]-1,yLim[1]+1, (yLim[1]-yLim[0]+2)/20)
 )
 
 u = foodDiff(yMesh, parameters[0])
@@ -51,15 +52,15 @@ foodParamSlider = mplW.Slider(
 	ax = plt.axes([0.25/4, 0.25, 0.02, 0.63]),
 	label = "a",
 	valmin = 0,
-	valmax = parameters[0],
+	valmax = max(parameters),
 	valinit = parameters[0],
 	orientation = "vertical"
 )
 colonyParamSlider = mplW.Slider(
 	ax = plt.axes([0.25*2/4, 0.25, 0.02, 0.63]),
 	label = "b",
-	valmin = 0,
-	valmax = parameters[1],
+	valmin = 0, #change to a negative number if you want to make the model of a single colony and food a model of two competing colonies
+	valmax = max(parameters),
 	valinit = parameters[1],
 	orientation = "vertical"
 )
